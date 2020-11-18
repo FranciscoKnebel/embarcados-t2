@@ -48,7 +48,9 @@ for optimization in ${optimization_levels[@]}; do
     log "Executing $optimization/$array_size"
     ./rapl-tools/AppPowerMeter ./sort $array_size > experiments/$1/$optimization/$array_size/power.log
     cp rapl.csv experiments/$1/$optimization/$array_size/
+    rm rapl.csv
   done
+  rm sort
 done
 
 log "All experiments executed. Please check the 'experiments/$1' directory for the experiment results."
