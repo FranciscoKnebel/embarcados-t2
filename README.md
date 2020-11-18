@@ -2,13 +2,18 @@
 
 Version:  1.1.3.2
 
+## Requirements
+* g++
+
+`sudo apt install build-essential`
+
 ## Compile
 ```
 g++ -O0 -fpermissive bench.c -o sort
 ```
 Ignore warnings.
 
-## Execute benchmark
+## Execute quadsort benchmark
 ```
 ./sort
 ```
@@ -50,17 +55,30 @@ sudo setcap cap_sys_rawio+ep ./PowerMonitor
 ## Experiment Setup
 
 We will experiment with quadsort compiled multiple times, varying optimization levels.
+Check the Compile section for details on how to compile quadsort and execute the experiments for each level.
 The used values are: -O0 (default), -O1, -O2 and -O3.
 
 https://www.rapidtables.com/code/linux/gcc/gcc-o.html
 
-After building quadsort and rapl-tools, execute the following commands:
+Array size values are: 1000, 10000, 100000, 1000000, 10000000 and 100000000.
+
+### Manual experiments
+
+After building quadsort and rapl-tools, execute the following commands, for each array size:
 ```
-./rapl-tools/AppPowerMeter sort 1000 > experiments/<machine-name>/<optimization-level>/1000.log
-./rapl-tools/AppPowerMeter sort 10000 > experiments/<machine-name>/<optimization-level>/10000.log
-./rapl-tools/AppPowerMeter sort 100000 > experiments/<machine-name>/<optimization-level>/100000.log
-./rapl-tools/AppPowerMeter sort 1000000 > experiments/<machine-name>/<optimization-level>/1000000.log
+./rapl-tools/AppPowerMeter ./sort <array-size> > experiments/<machine-name>/<optimization-level>/<array-size>/power.log
+cp rapl.csv experiments/<machine-name>/<optimization-level>/<array-size>/
 ```
 
-Save the log files in a specific folder for the current experiment.
+This will execute AppPowerMeter with the compiled `sort` binary and save the results to the specific experiment folder. Save the log files in a specific folder for the each experiment.
 Repeat for each optimization.
+
+### Automated experiments
+
+Script that executes all variations.
+Compile rapl-tools as described above and execute the script:
+```
+./execute-experiments.sh <machine-name>
+```
+
+The argument `<machine-name>` will be a directory in `experiments`, containing the directories for the optimizations used and the array sizes.

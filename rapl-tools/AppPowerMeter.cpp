@@ -12,7 +12,7 @@
 int main(int argc, char *argv[]) {
 
 	Rapl *rapl = new Rapl();
-	int ms_pause = 100;       // sample every 100ms
+	int ms_pause = 50;       // sample every 50ms
 	std::ofstream outfile ("rapl.csv", std::ios::out | std::ios::trunc);
 
 	pid_t child_pid = fork();
