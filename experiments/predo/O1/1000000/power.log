@@ -1,10 +1,10 @@
-benchmark: array size: 1000000, sample size: 10, repetitions: 1, seed: 1605893767
+benchmark: array size: 1000000, sample size: 10, repetitions: 1, seed: 1605985786
 
 |      Name |    Items | Type |     Best |  Average | Comparisons |     Distribution |
 | --------- | -------- | ---- | -------- | -------- | ----------- | ---------------- |
-|  quadsort |  1000000 |  i32 | 0.301733 | 0.304940 |  19305785.0 |     random order |
+|  quadsort |  1000000 |  i32 | 0.104965 | 0.113222 |  19306971.0 |     random order |
 PARENT: Child's exit code is: 0
 
-	Total Energy:	0 J
-	Average Power:	0 W
-	Time:	3.48618 sec
+	Total Energy:	14.9078 J
+	Average Power:	11.4327 W
+	Time:	1.30396 sec
