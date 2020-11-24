@@ -1,0 +1,10 @@
+benchmark: array size: 100000000, sample size: 10, repetitions: 1, seed: 1606226550
+
+|      Name |    Items | Type |     Best |  Average | Comparisons |     Distribution |
+| --------- | -------- | ---- | -------- | -------- | ----------- | ---------------- |
+|  quadsort | 100000000 |  i32 | 11.282374 | 11.286808 | 2599207494.0 |     random order |
+PARENT: Child's exit code is: 0
+
+	Total Energy:	2718.15 J
+	Average Power:	21.6438 W
+	Time:	125.585 sec
